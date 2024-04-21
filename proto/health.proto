@@ -1,0 +1,26 @@
+syntax = "proto3";
+package health;
+// option go_package = "github.com/dalpengida/portfolio-grpc-go/proto/health";
+option go_package = "/model/health";
+service Health {  
+	rpc SayHello (HelloRequest) returns (HelloResponse) {}  
+	rpc Health (HealthRequest) returns (stream HealthResponse) {}  
+}
+
+message HelloRequest {
+	string name = 1;
+}
+message HelloResponse {
+	string name = 1;
+	string res = 2;
+}
+
+
+message HealthRequest {
+	string id = 1;  
+}
+
+message HealthResponse {
+	string id = 1;  
+	string val = 2;
+}

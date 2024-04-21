@@ -1,0 +1,17 @@
+syntax = "proto3";
+package model.chat;
+// option go_package = "github.com/dalpengida/portfolio-grpc-go/proto/chat";
+option go_package = "/model/chat";
+
+service ChatRoom {
+    rpc Chat (stream ChatRequest) returns (stream ChatResponse) {}
+}
+
+message ChatRequest {
+    string message = 1;
+}
+
+message ChatResponse {
+    string message = 1;
+}
+
